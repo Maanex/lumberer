@@ -1,0 +1,39 @@
+{
+  "name": "lumberer",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node ./build/index.js",
+    "build": "tsc",
+    "dev": "nodemon src/index.ts --watch src",
+    "test": "echo \"No test specified\" && exit 0",
+    "lint": "eslint --ext .ts --ignore-path .gitignore ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@nuxtjs/eslint-config-typescript": "^5.0.0",
+    "@types/axios": "^0.14.0",
+    "@types/chalk": "^2.2.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.9",
+    "@types/helmet": "^4.0.0",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^12.12.54",
+    "axios": "^0.20.0",
+    "chalk": "^3.0.0",
+    "cookie-parser": "^1.4.5",
+    "cron": "^1.8.2",
+    "eslint": "^7.16.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.3.1",
+    "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
+    "request": "^2.88.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}

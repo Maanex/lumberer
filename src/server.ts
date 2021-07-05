@@ -23,7 +23,7 @@ export function startServer(): Promise<boolean> {
 
     app.use('/static', express.static('./static'))
     app.get('/', (_, res) => res.redirect('/dashboard'))
-    app.all('*', (_, res: Response) => res.status(404).send('404 Not Found'))
+    app.all('*', (req, res) => res.status(404).send(`cannot find ${req.path}`))
 
     app.listen(process.env.SERVER_PORT || 9914, () => {
       console.log(chalk`Server listening on port {yellowBright ${process.env.SERVER_PORT || 9914}}`)

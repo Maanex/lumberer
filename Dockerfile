@@ -1,6 +1,7 @@
 FROM node:alpine
 
-WORKDIR /lumberer
+RUN mkdir -p /usr/lumberer
+WORKDIR /usr/lumberer
 
 ENV SERVER_PORT=9914
 

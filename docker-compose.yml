@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  lumberer:
+    image: maanex/lumberer:latest
+    volumes:
+      - logfiles:/storage
+    environment:
+      STORAGE_PATH: "../storage"
+    networks:
+      - traefik-public
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.http.routers.lumberer.entrypoints=http
+        - traefik.http.routers.lumberer.rule=PathPrefix(`/logging`)
+        - traefik.http.routers.lumberer.middlewares=lumberer-stripprefix
+        - traefik.http.middlewares.lumberer-stripprefix.stripprefix.prefixes=/logging
+
+networks:
+  traefik-public:
+    external: true
+
+volumes:
+  logfiles: {}
